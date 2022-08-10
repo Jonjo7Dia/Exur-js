@@ -1,13 +1,14 @@
 import classes from './Search.module.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import Checkbox from './Checkbox';
+import Reset from './Reset';
 function Search(){
     return <div className={classes.search}>
 <form
         action=""
         onSubmit={(e) => {
           e.preventDefault();
-
         }}
       >
         <div className={classes.searchElements}>
@@ -21,8 +22,8 @@ function Search(){
           />
         </div>
 
-        {/* <Checkbox />
-        <Reset /> */}
+            <Checkbox />
+        <Reset /> 
       </form>
 
     </div>

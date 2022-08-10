@@ -1,6 +1,5 @@
 .rightPanel{
     width: 70%;
-    height: 100%;
     padding-top: 5rem;
     display: flex;
     flex-direction: column;
@@ -12,10 +11,8 @@
 
 .filterMobile{
     width: 100%;
-    height: 20%;
     display: none;
     margin-bottom: 2rem;
-    background-color: red;
 
 }
 @media only screen and (max-width: 800px){
