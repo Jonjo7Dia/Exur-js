@@ -5,4 +5,4 @@ const store = configureStore({
     reducer:{fetch: fetchSlice.reducer}
 });
 
-export default fetch;
+export default store;
