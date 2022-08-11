@@ -1,0 +1,35 @@
+.noResults {
+    width: 90%;
+    height: 100%;
+    background-color: hsla(0,0%,93.7%,0.9);
+    box-sizing: border-box;
+    padding: 40px;
+    margin-top: 40px;
+    border: dashed 2px #6ebeff;
+    
+}
+
+.noResults p{
+    color: #0041ff;
+    font-weight: 300;
+    font-family: 'sora';
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+.noResultsInfo p{
+    color: black;
+    text-align: left;
+    margin-bottom: 1rem;
+    font-weight: 300;
+}
+.noResultsInfo p{
+    margin-top: 30px;
+}
+
+.noResults h4{
+    color: #646464;
+    font-size: 1.8rem;
+    font-family: 'sora';
+    font-weight: 300;
+    text-align: center;
+}

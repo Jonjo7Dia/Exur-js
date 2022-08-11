@@ -36,6 +36,7 @@ function Search() {
             type="text"
             placeholder={"Søg Produkter"}
             defaultValue={searchWord}
+            id={'searchText'}
             onChange={(e) => {
               setSearchWord(e.target.value);
             }}

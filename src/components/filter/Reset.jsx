@@ -14,6 +14,7 @@ function Reset() {
           dispatch(resultsActions.setLoading(true));
           document.getElementById('checkbox2').checked = false;
           document.getElementById('checkbox1').checked = false;
+          document.getElementById("searchText").value= '';
 
       }}>
         Ryd Filtre
