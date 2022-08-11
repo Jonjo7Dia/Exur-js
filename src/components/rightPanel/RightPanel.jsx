@@ -5,14 +5,14 @@ import Results from '../results/Results'
 import { useSelector } from 'react-redux';
 import Pagination from '../pagination/Pagination';
 function RightPanel(){
-    const filterItems = useSelector(state => state.fetch);
+    const resultsItems = useSelector(state => state.results);
     return <div className={classes.rightPanel}>
         <Intro />
         <div className={classes.filterMobile}>
             <Filter/>
         </div>
         <Results/>
-        {!filterItems.loading && <Pagination />}
+        {!resultsItems.loading && <Pagination />}
     </div>
 }
 

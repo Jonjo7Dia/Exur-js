@@ -2,32 +2,37 @@ import classes from "./Results.module.css";
 import Loading from '../loading/Loading';
 import {HttpGetData} from '../../hooks/requests';
 import {fetchActions} from '../../store/fetch-slice';
+import {resultsActions} from '../../store/results-slice';
 import { useDispatch, useSelector } from "react-redux";
-import { useCallback, useEffect } from "react";
+import {  useEffect } from "react";
 import Result from './Result';
 function Results() {
     const dispatch = useDispatch();
     const filter = useSelector(state => state.fetch);
-    const getData = useCallback(async () =>{
-        console.log('fetching');
+    const results = useSelector(state => state.results);
+    async function getData(){
+        console.log('fetch')
         const fetchedData = await HttpGetData(
-            fetch.currentPage,
-            fetch.searchText,
-            fetch.complianceTypeIds
+            filter.currentPage,
+            filter.searchText,
+            filter.complianceTypeIds
         );
-        dispatch(fetchActions.setLoading(false));
-        dispatch(fetchActions.setResults(fetchedData.results));
-        dispatch(fetchActions.setTotalPage(fetchedData.pageCount));   
-        console.log(fetchedData);
-    }, [filter, dispatch])
+        if(fetchedData){
+            dispatch(resultsActions.setLoading(false));
+            dispatch(resultsActions.setResults(fetchedData.results));
+            dispatch(resultsActions.setTotalPage(fetchedData.pageCount)); 
+            dispatch(resultsActions.setCurrentPage(fetchedData.currentPage));   
+        }
+    }
     useEffect(()=>{
         getData();
 
-    }, []);
+    }, [filter]);
+
     return <div className={classes.results}>
-    {filter.loading &&<Loading/>}
-    {filter.results.map((result, index)=>{
-          return <Result key={index} result={result}/>
+    {results.loading &&<Loading/>}
+    {!results.loading && results.results.map((result, index)=>{
+          return <Result key={index} result={result} index={index}/>
       })}
 
 </div>;
