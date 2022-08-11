@@ -19,11 +19,11 @@ const fetchSlice = createSlice({
         currentPage: action.payload,
       };
     },
-    setTotalPage(state,action){
-        return {
-            ...state,
-            totalCount: action.payload,
-        }
+    setTotalPage(state, action) {
+      return {
+        ...state,
+        totalCount: action.payload,
+      };
     },
     setSearchText(state, action) {
       return {
@@ -32,22 +32,28 @@ const fetchSlice = createSlice({
       };
     },
     setCompliance(state, action) {
+        return {
+            ...state,
+            complianceTypeIds: action.payload,
+          };
+    },
+    emptyCompliance(state){
+        return {
+            ...state,
+            complianceTypeIds: [],
+          };
+    },
+    setResults(state, action) {
       return {
         ...state,
-        complianceTypeIds: action.payload,
+        results: action.payload,
       };
     },
-    setResults(state, action){
-        return {
-            ...state, 
-            results: action.payload,
-        }
-    },
-    setLoading(state,action){
-        return {
-            ...state, 
-            loading: action.payload,
-        }
+    setLoading(state, action) {
+      return {
+        ...state,
+        loading: action.payload,
+      };
     },
     reset(state) {
       return {

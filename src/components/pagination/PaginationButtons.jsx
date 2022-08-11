@@ -4,7 +4,7 @@ import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import {fetchActions} from '../../store/fetch-slice';
-import {resultsActions} from '../../store/results-slice'
+import {resultsActions} from '../../store/results-slice';
 function PaginationButtons(props) {
     const dispatch = useDispatch();
     const filteredItems = useSelector(state =>  state.fetch);
