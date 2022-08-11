@@ -8,10 +8,12 @@ import {resultsActions} from '../../store/results-slice'
 function PaginationButtons(props) {
     const dispatch = useDispatch();
     const filteredItems = useSelector(state =>  state.fetch);
+    const resultsItems = useSelector(state =>  state.results);
+
   return (
     <div className={classes.pagButton}>
       <button className={classes.pageButton} onClick={()=>{
-         if(filteredItems.currentPage > 1){
+         if(resultsItems.currentPage > 1){
           dispatch(fetchActions.setCurrentPage(filteredItems.currentPage - 1));
           dispatch(resultsActions.setResults([]));
           dispatch(resultsActions.setLoading(true));
@@ -22,7 +24,7 @@ function PaginationButtons(props) {
       {props.range.map((number, index) => {
         return (
           <button className={`${classes.pageButton} ${filteredItems.currentPage === number ? classes.active : ''}`} key={index} onClick={()=>{
-            if(filteredItems.currentPage !== number &&  number !== '...'){
+            if(resultsItems.currentPage !== number &&  number !== '...'){
               dispatch(fetchActions.setCurrentPage(number));
               dispatch(resultsActions.setResults([]));
               dispatch(resultsActions.setLoading(true));
@@ -33,7 +35,7 @@ function PaginationButtons(props) {
         );
       })}
       <button className={classes.pageButton} onClick={()=>{
-          if(filteredItems.currentPage < filteredItems.totalCount){
+          if(resultsItems.currentPage < resultsItems.totalCount){
             dispatch(fetchActions.setCurrentPage(filteredItems.currentPage + 1));
             dispatch(resultsActions.setResults([]));
             dispatch(resultsActions.setLoading(true));

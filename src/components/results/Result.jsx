@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 function Result(props) {
   const [imageData, setImageData] = useState("");
   useEffect(() => {
-    console.log(props.index);
 
     if (props.result.productPictures.length > 0) {
       fetch(

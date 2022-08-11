@@ -8,11 +8,11 @@ function range(start, end) {
   }
 function Pagination(){
 
-    const filterItems = useSelector(state => state.fetch);
-    const totalCount = filterItems.totalCount;
+    const resultsItems = useSelector(state => state.results);
+    const totalCount = resultsItems.totalCount;
     const pageSize = 1;
     const siblingCount = 1;
-    const currentPage = filterItems.currentPage;
+    const currentPage = resultsItems.currentPage;
     const paginationRange = useMemo(() => {
         const totalPageCount = Math.ceil(totalCount / pageSize);
         const totalPageNumbers = siblingCount + 5;
@@ -48,7 +48,7 @@ function Pagination(){
           let middleRange = range(leftSiblingIndex, rightSiblingIndex);
           return [firstPageIndex, "...", ...middleRange, "...", lastPageIndex];
         }
-      }, [filterItems.currentPage, filterItems.totalCount]);
+      }, [resultsItems.currentPage, resultsItems.totalCount]);
 
       return <div className={classes.pagination}>
           <PaginationButtons range={paginationRange}/>

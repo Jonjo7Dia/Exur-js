@@ -11,7 +11,6 @@ function Results() {
     const filter = useSelector(state => state.fetch);
     const results = useSelector(state => state.results);
     async function getData(){
-        console.log('fetch')
         const fetchedData = await HttpGetData(
             filter.currentPage,
             filter.searchText,
